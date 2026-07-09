@@ -1,0 +1,14 @@
+diff --git a/node_modules/@dojo/webpack-contrib/static-build-loader/loader.js b/node_modules/@dojo/webpack-contrib/static-build-loader/loader.js
+index ba68bf0..6465720 100644
+--- a/node_modules/@dojo/webpack-contrib/static-build-loader/loader.js
++++ b/node_modules/@dojo/webpack-contrib/static-build-loader/loader.js
+@@ -86,7 +86,8 @@ function loader(content, sourceMap) {
+                 return acorn.parse(source, {
+                     plugins: { dynamicImport: true },
+                     locations: true,
+-                    sourceType: 'module'
++                    sourceType: 'module',
++                    ecmaVersion: 2020
+                 });
+             }
+         }
