@@ -1,0 +1,32 @@
+diff --git a/node_modules/@dojo/cli-build-app/main.js b/node_modules/@dojo/cli-build-app/main.js
+index c6b6674..906d916 100644
+--- a/node_modules/@dojo/cli-build-app/main.js
++++ b/node_modules/@dojo/cli-build-app/main.js
+@@ -225,9 +225,10 @@ function serve(config, args) {
+                     if (error) {
+                         reject(error);
+                     }
+-                    else {
+-                        resolve();
+-                    }
++                    // Intentionally do not resolve: the dev server must keep the
++                    // process alive. Resolving causes @dojo/cli to call
++                    // process.exit(0) immediately after printing the listening
++                    // port, tearing down the server before it can serve traffic.
+                 });
+             }
+             else {
+@@ -235,9 +236,10 @@ function serve(config, args) {
+                     if (error) {
+                         reject(error);
+                     }
+-                    else {
+-                        resolve();
+-                    }
++                    // Intentionally do not resolve: the dev server must keep the
++                    // process alive. Resolving causes @dojo/cli to call
++                    // process.exit(0) immediately after printing the listening
++                    // port, tearing down the server before it can serve traffic.
+                 });
+             }
+         });
